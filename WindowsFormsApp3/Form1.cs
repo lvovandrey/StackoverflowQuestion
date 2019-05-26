@@ -79,6 +79,7 @@ namespace WindowsFormsApp3
 
        
 
+
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
             int currentX = e.X;
@@ -89,13 +90,16 @@ namespace WindowsFormsApp3
                 & currentY > (objects[i].Y - objects[i].Height / 2) & currentY < (objects[i].Y + objects[i].Height / 2))
                 {
                     MessageBox.Show("Ты нашел слово: " + objects[i].Name);
+                    //Отмечаем что данный объект прокликан
                     objects[i].IsClicked = true;
                 }
             }
 
+            //Проверяем все ли объекты прокликаны
             if (IsAllClicked()) MessageBox.Show("Все объекты прокликаны");
         }
 
+        //Проверка коллекции объектов - все ли прокликаны
         private bool IsAllClicked()
         {
             bool AllObjectsClicked = true;
@@ -109,6 +113,7 @@ namespace WindowsFormsApp3
             return AllObjectsClicked;
         }
 
+        //Необязательная часть - просто чтобы ориентироваться в "пространстве"
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
            label1.Text = e.X.ToString();
@@ -129,7 +134,6 @@ namespace WindowsFormsApp3
             else label2.Text = "---";
 
         }
-
 
     }
 }
